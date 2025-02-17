@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2BratKand</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
-        .header { background-color: #20c997; color: white; text-align: center; padding: 40px 20px; font-size: 2em; }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #e6f7ff; color: #000; transition: background-color 0.5s, color 0.5s; }
+        .dark-mode { background-color: #1e1e1e; color: #fff; }
+        .header { background-color: #00aaff; color: white; text-align: center; padding: 40px 20px; font-size: 2em; }
         .content { padding: 20px; }
         .lecture { margin: 20px 0; }
-        .lecture button { background-color: #20c997; color: white; border: none; padding: 10px; cursor: pointer; }
-        .lecture-text { display: none; margin-top: 10px; }
-        .info-button { background-color: #007bff; color: white; border: none; padding: 15px; margin-top: 20px; cursor: pointer; width: 100%; }
+        .lecture button { background-color: #00aaff; color: white; border: none; padding: 10px; cursor: pointer; margin-bottom: 10px; }
+        .lecture-text { display: none; margin-top: 10px; font-size: 1.1em; }
+        .future-btn { margin: 20px 0; padding: 15px; background-color: #0077cc; color: #fff; border: none; cursor: pointer; font-size: 1em; }
+        .theme-btn { margin: 20px 0; padding: 15px; background-color: #0055aa; color: #fff; border: none; cursor: pointer; font-size: 1em; }
+        .hidden { display: none; }
+        .music-player { margin-top: 30px; text-align: center; }
+        .music-player audio { width: 100%; max-width: 300px; }
     </style>
     <script>
         function toggleLecture(id) {
             const text = document.getElementById(id);
             text.style.display = text.style.display === 'none' ? 'block' : 'none';
         }
-        function showInfo() {
-            alert('Сайт будет постоянно улучшаться и дополняться новыми лекциями! Спасибо, что вы с нами!');
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+        function showFutureMessage() {
+            alert('Этот сайт будет развиваться и становиться лучше! Ожидайте новых лекций и функций.');
+        }
+        function toggleLectureVisibility() {
+            const lectures = document.querySelectorAll('.lecture');
+            lectures.forEach(lecture => {
+                lecture.classList.toggle('hidden');
+            });
         }
     </script>
 </head>
@@ -27,29 +41,68 @@
     <div class="header">ДОБРО ПОЖАЛОВАТЬ НА 2BRATKAND!</div>
     <div class="content">
         <p>Этот сайт создан для полезных лекций и статей. Надеемся, что наша работа вам понравится!</p>
-        <button class="info-button" onclick="showInfo()">Узнать о будущем сайта</button>
+
+        <button class="future-btn" onclick="showFutureMessage()">Узнать о будущем сайта</button>
+        <button class="theme-btn" onclick="toggleTheme()">Сменить тему</button>
+        <button class="theme-btn" onclick="toggleLectureVisibility()">Скрыть/показать лекции</button>
 
         <div class="lecture">
             <button onclick="toggleLecture('lecture1')">Лекция 1: Смысл жизни</button>
             <div id="lecture1" class="lecture-text">
-                <p>Смысл жизни у каждого свой. Для одних - это семья, для других - самореализация. Важно найти своё предназначение. Найдя свой путь, человек ощущает удовлетворение, радость и гармонию с окружающим миром.</p>
+                <p>Смысл жизни - это одна из самых загадочных тем в истории человечества. Каждый человек ищет своё предназначение: семья, работа, творчество, помощь другим. Важно найти то, что приносит радость и делает жизнь осмысленной.</p>
             </div>
         </div>
 
         <div class="lecture">
             <button onclick="toggleLecture('lecture2')">Лекция 2: Саморазвитие</button>
             <div id="lecture2" class="lecture-text">
-                <p>Саморазвитие - это процесс постоянного обучения и роста. Начните с чтения книг, прохождения курсов и постановки целей. Развитие навыков позволяет быть конкурентоспособным в профессии, а также достигать личных высот.</p>
+                <p>Саморазвитие — это процесс осознанного улучшения своих навыков, знаний и качеств. Нужно стремиться к обучению, читать книги, посещать тренинги, ставить цели и отслеживать прогресс. Это путь, который делает нас лучше с каждым днём.</p>
             </div>
         </div>
 
         <div class="lecture">
             <button onclick="toggleLecture('lecture3')">Лекция 3: Управление временем</button>
             <div id="lecture3" class="lecture-text">
-                <p>Эффективное управление временем позволяет достигать целей быстрее. Используйте планирование и расстановку приоритетов. Тайм-менеджмент помогает снижать стресс, достигать больших результатов и гармонично распределять нагрузку.</p>
+                <p>Время — это самый ценный ресурс. Научиться управлять временем — значит управлять своей жизнью. Используйте методы планирования, такие как тайм-блокинг, список дел и приоритеты, чтобы достигать целей быстрее и эффективнее.</p>
             </div>
         </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture4')">Лекция 4: Эмоциональный интеллект</button>
+            <div id="lecture4" class="lecture-text">
+                <p>Эмоциональный интеллект — это способность понимать свои и чужие эмоции, управлять ими и использовать их для достижения целей. Он важен для построения успешных отношений в семье, работе и обществе.</p>
+            </div>
+        </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture5')">Лекция 5: Финансовая грамотность</button>
+            <div id="lecture5" class="lecture-text">
+                <p>Финансовая грамотность — это знание принципов управления деньгами, инвестирования, сбережения и расходования средств. Понимание финансовых инструментов помогает достичь материальной стабильности и уверенности в будущем.</p>
+            </div>
+        </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture6')">Лекция 6: Харизма</button>
+            <div id="lecture6" class="lecture-text">
+                <p>Харизма — это сочетание уверенности в себе, общения с другими и способности вдохновлять окружающих. Развитие харизмы включает в себя работу над собой, своими привычками и эмоциональной осознанностью.</p>
+            </div>
+        </div>
+
+        <div class="music-player">
+            <h3>Песня "Мамин свет"</h3>
+            <audio controls>
+                <source src="maminsvet.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоплеер.
+            </audio>
+        </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture7')">Лекция 7: Уверенность в себе</button>
+            <div id="lecture7" class="lecture-text">
+                <p>Уверенность в себе строится на опыте, знаниях и навыках. Это качество, которое помогает достигать целей и взаимодействовать с другими людьми более эффективно.</p>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
-
