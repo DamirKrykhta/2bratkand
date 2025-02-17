@@ -3,135 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2BratKand - Интерактивный сайт</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>2BratKand</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
-            padding: 40px;
-            text-align: center;
-            font-size: 2em;
-            font-weight: 700;
-            animation: fadeIn 2s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .button {
-            margin: 20px 0;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            background-color: #00c6ff;
-            color: #fff;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-            background-color: #0072ff;
-        }
-
-        .theme-toggle {
-            margin: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .dark-mode {
-            background-color: #121212;
-            color: #fff;
-        }
-
-        .section {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #f3f3f3;
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s;
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        .header { background-color: #20c997; color: white; text-align: center; padding: 40px 20px; font-size: 2em; }
+        .content { padding: 20px; }
+        .lecture { margin: 20px 0; }
+        .lecture button { background-color: #20c997; color: white; border: none; padding: 10px; cursor: pointer; }
+        .lecture-text { display: none; margin-top: 10px; }
+        .info-button { background-color: #007bff; color: white; border: none; padding: 15px; margin-top: 20px; cursor: pointer; width: 100%; }
     </style>
+    <script>
+        function toggleLecture(id) {
+            const text = document.getElementById(id);
+            text.style.display = text.style.display === 'none' ? 'block' : 'none';
+        }
+        function showInfo() {
+            alert('Сайт будет постоянно улучшаться и дополняться новыми лекциями! Спасибо, что вы с нами!');
+        }
+    </script>
 </head>
 <body>
     <div class="header">ДОБРО ПОЖАЛОВАТЬ НА 2BRATKAND!</div>
-
     <div class="content">
-        <p>Этот сайт был создан для полезных лекций, статей и вдохновения для саморазвития.</p>
-        <button class="button" onclick="showMessage()">Нажми меня</button>
-        <br>
-        <button class="theme-toggle" onclick="toggleTheme()">Переключить тему</button>
+        <p>Этот сайт создан для полезных лекций и статей. Надеемся, что наша работа вам понравится!</p>
+        <button class="info-button" onclick="showInfo()">Узнать о будущем сайта</button>
 
-        <div class="section">Зачем был создан сайт?</div>
-        <p class="selection"> Этот сайт был создан с целью обеспечить доступ к ключу и интересным материалам для всех, кто занимается саморазвитием.
-            Здесь вы можете найти лекции, статьи и другие ресурсы, которые помогут вам расширить кругозор, изучить новые вещи и лучше понять окружающий мир.
-            Мы получим контент, который будет полезен как новичкам, так и тем, кто уже имеет опыт в выбранной теме.
-            Надеемся, что наш сайт вдохновит вас на новые достижения и возможности.</p>
-        <div class="section">Как найти смысл жизни?</div>
-        <div class="section">Полезные советы по саморазвитию</div>
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture1')">Лекция 1: Смысл жизни</button>
+            <div id="lecture1" class="lecture-text">
+                <p>Смысл жизни у каждого свой. Для одних - это семья, для других - самореализация. Важно найти своё предназначение. Найдя свой путь, человек ощущает удовлетворение, радость и гармонию с окружающим миром.</p>
+            </div>
+        </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture2')">Лекция 2: Саморазвитие</button>
+            <div id="lecture2" class="lecture-text">
+                <p>Саморазвитие - это процесс постоянного обучения и роста. Начните с чтения книг, прохождения курсов и постановки целей. Развитие навыков позволяет быть конкурентоспособным в профессии, а также достигать личных высот.</p>
+            </div>
+        </div>
+
+        <div class="lecture">
+            <button onclick="toggleLecture('lecture3')">Лекция 3: Управление временем</button>
+            <div id="lecture3" class="lecture-text">
+                <p>Эффективное управление временем позволяет достигать целей быстрее. Используйте планирование и расстановку приоритетов. Тайм-менеджмент помогает снижать стресс, достигать больших результатов и гармонично распределять нагрузку.</p>
+            </div>
+        </div>
     </div>
-
-    <script>
-        function showMessage() {
-            const messages = [
-                'Ты можешь всё, что захочешь!',
-                'Развивайся каждый день!',
-                'Сайт становится всё круче!'
-            ];
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            alert(randomMessage);
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.5 });
-
-        sections.forEach(section => observer.observe(section));
-
-    </script>
 </body>
 </html>
+
