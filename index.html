@@ -1,24 +1,43 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    let numPetals = 15; // Количество лепестков
+    // Падающие лепестки сакуры
+    let numPetals = 20; // Количество лепестков
     for (let i = 0; i < numPetals; i++) {
         let petal = document.createElement("div");
         petal.classList.add("petal");
         document.body.appendChild(petal);
 
-        let delay = Math.random() * 5; // Разный старт падения
-        let duration = Math.random() * 5 + 5; // Скорость падения
-        let size = Math.random() * 10 + 10; // Размер лепестка
-        let posX = Math.random() * 100; // Разное положение по X
+        let delay = Math.random() * 5;
+        let duration = Math.random() * 5 + 5;
+        let size = Math.random() * 10 + 10;
+        let posX = Math.random() * 100;
 
         petal.style.left = posX + "vw";
         petal.style.width = size + "px";
         petal.style.height = size + "px";
         petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
     }
+
+    // Летающие бабочки
+    let numButterflies = 10; // Количество бабочек
+    for (let i = 0; i < numButterflies; i++) {
+        let butterfly = document.createElement("div");
+        butterfly.classList.add("butterfly");
+        document.body.appendChild(butterfly);
+
+        let delay = Math.random() * 5;
+        let duration = Math.random() * 10 + 5;
+        let size = Math.random() * 15 + 15;
+        let posX = Math.random() * 100;
+
+        butterfly.style.left = posX + "vw";
+        butterfly.style.width = size + "px";
+        butterfly.style.height = size + "px";
+        butterfly.style.animation = `fly ${duration}s ease-in-out ${delay}s infinite`;
+    }
 });
 
-// CSS-стили для лепестков
+// CSS-стили для лепестков сакуры
 let style = document.createElement("style");
 style.innerHTML = `
 .petal {
@@ -33,6 +52,22 @@ style.innerHTML = `
 @keyframes fall {
     0% { transform: translateY(0) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.butterfly {
+    width: 30px;
+    height: 30px;
+    background-color: #FF69B4;
+    clip-path: ellipse(50% 40% at 50% 50%);
+    position: absolute;
+    animation: fly 10s ease-in-out infinite;
+    opacity: 0.9;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.7);
+}
+
+@keyframes fly {
+    0% { transform: translateX(0) translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateX(100vw) translateY(100vh) rotate(360deg); opacity: 0; }
 }`;
 document.head.appendChild(style);
 </script>
