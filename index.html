@@ -1,3 +1,41 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let numPetals = 15; // Количество лепестков
+    for (let i = 0; i < numPetals; i++) {
+        let petal = document.createElement("div");
+        petal.classList.add("petal");
+        document.body.appendChild(petal);
+
+        let delay = Math.random() * 5; // Разный старт падения
+        let duration = Math.random() * 5 + 5; // Скорость падения
+        let size = Math.random() * 10 + 10; // Размер лепестка
+        let posX = Math.random() * 100; // Разное положение по X
+
+        petal.style.left = posX + "vw";
+        petal.style.width = size + "px";
+        petal.style.height = size + "px";
+        petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+    }
+});
+
+// CSS-стили для лепестков
+let style = document.createElement("style");
+style.innerHTML = `
+.petal {
+    position: fixed;
+    top: -10px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 5px rgba(255, 182, 193, 0.8);
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}`;
+document.head.appendChild(style);
+</script>
 <IMG id=Ols  
 style="POSITION: absolute; Middle: 9000px"  src="https://zornet.ru/CSS-ZORNET/REN/AG/butterfly13.gif">
 <SCRIPT><!--
