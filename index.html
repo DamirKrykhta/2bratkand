@@ -1,76 +1,22 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Падающие лепестки сакуры
-    let numPetals = 20; // Количество лепестков
-    for (let i = 0; i < numPetals; i++) {
-        let petal = document.createElement("div");
-        petal.classList.add("petal");
-        document.body.appendChild(petal);
-
-        let delay = Math.random() * 5;
-        let duration = Math.random() * 5 + 5;
-        let size = Math.random() * 10 + 10;
-        let posX = Math.random() * 100;
-
-        petal.style.left = posX + "vw";
-        petal.style.width = size + "px";
-        petal.style.height = size + "px";
-        petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
-    }
-
-    // Летающие бабочки
-    let numButterflies = 10; // Количество бабочек
-    for (let i = 0; i < numButterflies; i++) {
-        let butterfly = document.createElement("div");
-        butterfly.classList.add("butterfly");
-        document.body.appendChild(butterfly);
-
-        let delay = Math.random() * 5;
-        let duration = Math.random() * 10 + 5;
-        let size = Math.random() * 15 + 15;
-        let posX = Math.random() * 100;
-
-        butterfly.style.left = posX + "vw";
-        butterfly.style.width = size + "px";
-        butterfly.style.height = size + "px";
-        butterfly.style.animation = `fly ${duration}s ease-in-out ${delay}s infinite`;
-    }
-});
-
-// CSS-стили для лепестков сакуры
-let style = document.createElement("style");
-style.innerHTML = `
-.petal {
-    position: fixed;
-    top: -10px;
-    background-color: pink;
-    border-radius: 50%;
-    opacity: 0.8;
-    box-shadow: 0 0 5px rgba(255, 182, 193, 0.8);
+<IMG id=Ols  
+style="POSITION: absolute; Middle: 9000px"  src="https://zornet.ru/CSS-ZORNET/REN/AG/butterfly13.gif">
+<SCRIPT><!--
+ddx=0;ddy=0;PX=600;PY=0;xm=0;ym=0
+OlsW=Ols.width/2;OlsH=Ols.height/2
+function MoveWinnie(){
+    x=Math.round(PX+=((xm-PX)*3)/400)
+    y=Math.round(PY+=((ym-PY)*3)/400)
+    Ols.style.left=x-OlsW
+    Ols.style.top=y //osw
+    setTimeout("MoveWinnie()",10)   
 }
-
-@keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+function doMouse(){
+    xm=window.event.x
+    ym=window.event.y //fantasyflash.ru
 }
-
-.butterfly {
-    width: 30px;
-    height: 30px;
-    background-color: #FF69B4;
-    clip-path: ellipse(50% 40% at 50% 50%);
-    position: absolute;
-    animation: fly 10s ease-in-out infinite;
-    opacity: 0.9;
-    box-shadow: 0 0 5px rgba(255, 105, 180, 0.7);
-}
-
-@keyframes fly {
-    0% { transform: translateX(0) translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateX(100vw) translateY(100vh) rotate(360deg); opacity: 0; }
-}`;
-document.head.appendChild(style);
-</script>
+document.onmousemove=doMouse
+MoveWinnie()
+//--></SCRIPT>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
