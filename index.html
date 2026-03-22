@@ -154,5 +154,30 @@ MoveWinnie()
         </div>
 
     </div>
+<!-- Ракета -->
+<div class="rocket">
+    <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" alt="rocket">
+</div>
+
+<style>
+.rocket {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    animation: float 3s ease-in-out infinite;
+    z-index: 9999;
+}
+
+.rocket img {
+    width: 100%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+</style>
 </body>
 </html>
